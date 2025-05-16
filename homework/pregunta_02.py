@@ -13,5 +13,9 @@ def pregunta_02():
 
     Rta/
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
-
     """
+    from collections import Counter
+
+    with open("files/input/data.csv", "r") as file:
+        counts = Counter(line.split("\t")[0] for line in file)
+    return sorted(counts.items())

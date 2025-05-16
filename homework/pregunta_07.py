@@ -23,5 +23,17 @@ def pregunta_07():
      (7, ['A', 'C', 'E', 'D']),
      (8, ['E', 'D', 'E', 'A', 'B']),
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
-
     """
+    associations7 = {}
+
+    with open("files/input/data.csv", "r") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            letter = columns[0]
+            value = int(columns[1])
+            if value not in associations7:
+                associations7[value] = []
+            associations7[value].append(letter)
+
+    result = [(value, letters) for value, letters in sorted(associations7.items())]
+    return result

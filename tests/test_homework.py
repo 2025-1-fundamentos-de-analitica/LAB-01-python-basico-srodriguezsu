@@ -221,6 +221,7 @@ def test_11():
 
 def test_12():
     """Test 12"""
+    print(pregunta_12.pregunta_12())
     assert pregunta_12.pregunta_12() == {
         "A": 177,
         "B": 187,

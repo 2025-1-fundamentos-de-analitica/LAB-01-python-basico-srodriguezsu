@@ -13,6 +13,17 @@ def pregunta_11():
 
     Rta/
     {'a': 122, 'b': 49, 'c': 91, 'd': 73, 'e': 86, 'f': 134, 'g': 35}
-
-
     """
+    result11 = {}
+
+    with open("files/input/data.csv", "r") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            value = int(columns[1])
+            letters = columns[3].split(",")
+            for letter in letters:
+                if letter not in result11:
+                    result11[letter] = 0
+                result11[letter] += value
+
+    return dict(sorted(result11.items()))
